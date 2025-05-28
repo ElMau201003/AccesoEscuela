@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultados</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Resultados - Estudiantes en Riesgo</h1>
+    <nav>
+      <a href="inicio.html">Inicio</a>
+      <a href="recoleccion.html">Recolección</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="generar_reporte.html">Generar Reporte</a>
+      <a href="ver_reporte.html">Ver Reporte</a>
+      <a href="configuracion.html">Configuración</a>
+      <a href="indicadores.html">Indicadores</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Clasificación por Nivel de Riesgo</h2>
+    <table>
+      <thead><tr><th>Nombre</th><th>Zona</th><th>Riesgo</th></tr></thead>
+      <tbody>
+        <tr><td>Ana Torres</td><td>Rural</td><td>Alto</td></tr>
+        <tr><td>Jorge Ríos</td><td>Urbana</td><td>Medio</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:40px;">Indicadores de Exclusión Educativa</h2>
+    <div class="alert">⚠️ Nivel de exclusión en zona rural supera el 25%</div>
+    <div class="highlight">Porcentaje actual de exclusión: <strong>28.5%</strong></div>
+    <canvas id="graficoIndicador"></canvas>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('graficoIndicador').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Exclusión educativa (%)',
+          data: [20, 21.5, 23, 24.2, 26, 28.5],
+          borderColor: '#F20530',
+          backgroundColor: 'rgba(242, 5, 48, 0.1)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: 40
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

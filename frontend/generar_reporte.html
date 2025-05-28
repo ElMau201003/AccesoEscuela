@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generar Reporte</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Generar Reporte de Acceso Educativo</h1>
+    <nav>
+      <a href="inicio.html">Inicio</a>
+      <a href="recoleccion.html">Recolección</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="generar_reporte.html">Generar Reporte</a>
+      <a href="ver_reporte.html">Ver Reporte</a>
+      <a href="configuracion.html">Configuración</a>
+      <a href="indicadores.html">Indicadores</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Filtrar Datos para el Reporte</h2>
+
+    <form action="ver_reporte.html" method="get">
+      <label for="zona">Zona:</label>
+      <select id="zona" name="zona">
+        <option value="todos">Todos</option>
+        <option value="rural">Rural</option>
+        <option value="urbana">Urbana</option>
+      </select>
+
+      <label for="nivel">Nivel Educativo:</label>
+      <select id="nivel" name="nivel">
+        <option value="primaria">Primaria</option>
+        <option value="secundaria">Secundaria</option>
+      </select>
+
+      <label for="fecha">Periodo:</label>
+      <input type="month" id="fecha" name="fecha">
+
+      <div style="margin-top: 20px;">
+        <button type="submit">📊 Generar Reporte</button>
+        <button type="button" onclick="window.location.href='ver_reporte.html'">👁️ Vista Previa</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

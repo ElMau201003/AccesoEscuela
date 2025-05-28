@@ -1,0 +1,129 @@
+:root {
+    --rojo-profundo: #73020C;
+    --rojo-vibrante: #F20530;
+    --naranja: #F29422;
+    --amarillo: #F2B544;
+    --fondo-claro: #FAFAFA;
+    --texto: #333;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fondo-claro);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: var(--rojo-profundo);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  nav {
+    margin-top: 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  nav a:hover {
+    color: var(--amarillo);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  section {
+    display: none;
+  }
+  
+  section.active {
+    display: block;
+  }
+  
+  h2 {
+    color: var(--rojo-profundo);
+  }
+  
+  button {
+    background-color: var(--rojo-vibrante);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-top: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: var(--naranja);
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .alert {
+    background-color: #fff3cd;
+    border-left: 6px solid var(--amarillo);
+    color: #856404;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .highlight {
+    background-color: #fdf7e3;
+    padding: 10px 15px;
+    border-left: 4px solid var(--naranja);
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    border-radius: 4px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+    font-size: 1.05em;
+  }
+  

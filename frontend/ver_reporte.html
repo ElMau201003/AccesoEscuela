@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver Reporte</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Reporte de Acceso Educativo</h1>
+    <nav>
+      <a href="inicio.html">Inicio</a>
+      <a href="recoleccion.html">Recolección</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="generar_reporte.html">Generar Reporte</a>
+      <a href="ver_reporte.html">Ver Reporte</a>
+      <a href="configuracion.html">Configuración</a>
+      <a href="indicadores.html">Indicadores</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Resumen por Zona</h2>
+    <table>
+      <tr><th>Zona</th><th>Exclusión (%)</th></tr>
+      <tr><td>Rural</td><td>28.5%</td></tr>
+      <tr><td>Urbana</td><td>12.3%</td></tr>
+    </table>
+    <h2>Gráfico Comparativo</h2>
+    <canvas id="graficoReporte"></canvas>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('graficoReporte').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Rural', 'Urbana'],
+        datasets: [{
+          label: 'Exclusión (%)',
+          data: [28.5, 12.3],
+          backgroundColor: ['#F20530', '#F2B544']
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
+</body>
+</html>
