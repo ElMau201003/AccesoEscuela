@@ -1,0 +1,156 @@
+:root {
+  --rojo-profundo: #73020C;
+  --rojo-vibrante: #F20530;
+  --naranja: #F29422;
+  --amarillo: #F2B544;
+  --marron-oscuro: #8C4303;
+  --fondo-claro: #FAFAFA;
+  --texto: #333;
+  --alert-warning-bg: #fff3cd;
+  --alert-warning-border: var(--amarillo);
+  --alert-warning-color: #856404;
+  --alert-error-bg: #ffdddd;
+  --alert-error-border: #ff0000;
+  --alert-error-color: #a80000;
+  --highlight-bg: #e7ffe7;
+  --highlight-border: #33cc33;
+  --highlight-color: #1a7f1a;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--fondo-claro);
+  color: var(--texto);
+  margin: 0;
+  /* No agregues padding ni display flex aquí porque ya está en el layout */
+}
+
+/* Header y nav si los usas en alguna sección aparte */
+header {
+  background-color: var(--rojo-profundo);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--amarillo);
+}
+
+/* Contenedor para contenido principal */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Secciones ocultas/activas si las usas */
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+h2 {
+  color: var(--color-white);
+}
+
+button {
+  background-color: var(--rojo-vibrante);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--naranja);
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.alert {
+  background-color: #ffdddd;
+  color: #a80000;
+  padding: 10px;
+  margin-top: 15px;
+  border-left: 5px solid #ff0000;
+  font-weight: bold;
+}
+
+.alert-warning {
+  background-color: var(--alert-warning-bg);
+  border-left: 6px solid var(--alert-warning-border);
+  color: var(--alert-warning-color);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.alert-error {
+  background-color: var(--alert-error-bg);
+  color: var(--alert-error-color);
+  padding: 10px;
+  margin-top: 15px;
+  border-left: 5px solid var(--alert-error-border);
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.highlight {
+  background-color: var(--highlight-bg);
+  color: var(--highlight-color);
+  padding: 10px;
+  margin-top: 15px;
+  border-left: 5px solid var(--highlight-border);
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
