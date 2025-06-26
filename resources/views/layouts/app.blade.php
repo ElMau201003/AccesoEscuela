@@ -98,6 +98,7 @@
     <a href="{{ route('ver.reporte') }}">🧾 Ver Reporte</a>
     <a href="{{ route('indicadores') }}">📈 Indicadores</a>
     <a href="{{ route('configuracion') }}">⚙️ Configuración</a>
+    <a href="{{ route('evaluacion.form') }}">🧠 Evaluar Riesgo</a>
   </div>
 
   <div class="main-content">

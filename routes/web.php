@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\EvaluacionController;
 
 Route::get('/', function () {
     return view('inicio');
@@ -17,3 +18,6 @@ Route::get('/ver-reporte/pdf', [ReporteController::class, 'exportarPDF'])->name(
 
 Route::view('/configuracion', 'configuracion')->name('configuracion');
 Route::view('/indicadores', 'indicadores')->name('indicadores');
+
+Route::get('/evaluacion', fn() => view('evaluacion'))->name('evaluacion.form');
+Route::post('/evaluacion', [EvaluacionController::class, 'evaluar'])->name('evaluar.brecha');
