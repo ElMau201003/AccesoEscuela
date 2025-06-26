@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReporteController extends Controller
 {
@@ -46,6 +47,45 @@ class ReporteController extends Controller
             'zona', 'nivel', 'fecha'
         ));
     }
+
+    public function exportarPDF(Request $request)
+    {
+        $zona = $request->input('zona', 'todos');
+        $nivel = $request->input('nivel', 'todos');
+        $fecha = $request->input('fecha');
+
+        $query = Estudiante::query();
+
+        if ($zona !== 'todos') {
+            $query->where('zona', $zona);
+        }
+        if ($nivel !== 'todos') {
+            $query->where('nivel_socioeconomico', $nivel);
+        }
+        if ($fecha) {
+            [$anio, $mes] = explode('-', $fecha);
+            $query->whereYear('created_at', $anio)->whereMonth('created_at', $mes);
+        }
+
+        $estudiantes = $query->get();
+
+        $totalRural = $estudiantes->where('zona', 'Rural')->count();
+        $totalUrbana = $estudiantes->where('zona', 'Urbana')->count();
+        $ruralExcluidos = $estudiantes->where('zona', 'Rural')->where('internet', 0)->count();
+        $urbanaExcluidos = $estudiantes->where('zona', 'Urbana')->where('internet', 0)->count();
+        $porcentajeRural = $totalRural > 0 ? round(($ruralExcluidos / $totalRural) * 100, 1) : 0;
+        $porcentajeUrbana = $totalUrbana > 0 ? round(($urbanaExcluidos / $totalUrbana) * 100, 1) : 0;
+
+        $pdf = Pdf::loadView('reporte_pdf', compact(
+            'zona', 'nivel', 'fecha',
+            'totalRural', 'totalUrbana',
+            'ruralExcluidos', 'urbanaExcluidos',
+            'porcentajeRural', 'porcentajeUrbana'
+        ));
+
+        return $pdf->download('reporte_exclusion.pdf');
+    }
+
 
 }
 

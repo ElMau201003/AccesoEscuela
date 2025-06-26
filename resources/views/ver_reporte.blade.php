@@ -24,6 +24,11 @@
     <input type="month" name="fecha" value="{{ $fecha }}">
 
     <button type="submit">Aplicar Filtros</button>
+    
+    <a href="{{ route('ver.reporte.pdf', request()->query()) }}" target="_blank">
+      <button type="button">📥 Exportar PDF</button>
+    </a>
+
   </form>
 
   @if($porcentajeRural > 25)
